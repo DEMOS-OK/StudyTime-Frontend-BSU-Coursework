@@ -45,7 +45,6 @@ export default function Schedule() {
       return acc;
     }, {});
 
-    console.log(grouppedLessons);
     setLessons(grouppedLessons);
   };
 

@@ -38,38 +38,40 @@ const ScheduleTable = (props: ScheduleTableProps) => {
 
   return (
     <div className="h-screen w-3/4 bg-white rounded-lg shadow-lg px-10 overflow-y-scroll">
-      {Object.entries(lessons).map(([day, lessons]: [string, Lesson[]]) => {
-        return (
-          <div>
-            <div className="flex justify-end px-10 items-center py-3 my-5 bg-gradient-to-r from-cyan-200 to-blue-300 w-full shadow-md">
-              <h2 className="text-white font-light">{day}</h2>
-            </div>
+      {Object.entries(lessons).map(
+        ([day, lessons]: [string, Lesson[]], key) => {
+          return (
+            <div key={key}>
+              <div className="flex justify-end px-10 items-center py-3 my-5 bg-gradient-to-r from-cyan-200 to-blue-300 w-full shadow-md">
+                <h2 className="text-white font-light">{day}</h2>
+              </div>
 
-            <div
-              className="border-b font-medium grid"
-              style={{ gridTemplateColumns: "3fr 5fr 4fr" }}
-            >
-              <p className="py-4 px-4">Время занятия</p>
-              <p className="py-4 px-4">Предмет</p>
-              <p className="py-4 px-4">Преподаватель</p>
-            </div>
+              <div
+                className="border-b font-medium grid"
+                style={{ gridTemplateColumns: "3fr 5fr 4fr" }}
+              >
+                <p className="py-4 px-4">Время занятия</p>
+                <p className="py-4 px-4">Предмет</p>
+                <p className="py-4 px-4">Преподаватель</p>
+              </div>
 
-            {lessons.map((lesson: Lesson, key: any) => {
-              return (
-                <div
-                  key={key}
-                  className="border-b font-light text-sm grid"
-                  style={{ gridTemplateColumns: "3fr 5fr 4fr" }}
-                >
-                  <p className="px-4 py-4">{lesson.datetime}</p>
-                  <p className="px-4 py-4">{lesson.subject.title}</p>
-                  <p className="px-4 py-4">{lesson.teacher.fcs}</p>
-                </div>
-              );
-            })}
-          </div>
-        );
-      })}
+              {lessons.map((lesson: Lesson, key: any) => {
+                return (
+                  <div
+                    key={key}
+                    className="border-b font-light text-sm grid"
+                    style={{ gridTemplateColumns: "3fr 5fr 4fr" }}
+                  >
+                    <p className="px-4 py-4">{lesson.datetime}</p>
+                    <p className="px-4 py-4">{lesson.subject.title}</p>
+                    <p className="px-4 py-4">{lesson.teacher.fcs}</p>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        }
+      )}
     </div>
   );
 };
