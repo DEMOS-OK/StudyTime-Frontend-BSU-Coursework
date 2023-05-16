@@ -25,6 +25,11 @@ const Navbar = () => {
       isActive: requestURI === "/schedule",
       title: "Расписание",
     },
+    {
+      href: "/admin/auth",
+      isActive: requestURI === "/admin/auth",
+      title: "Вход",
+    },
   ];
 
   return (
@@ -40,7 +45,6 @@ const Navbar = () => {
                 </NavItem>
               );
             })}
-            ;
           </div>
         </div>
       </div>
@@ -56,7 +60,6 @@ const Navbar = () => {
               </NavItem>
             );
           })}
-          ;
         </div>
       </div>
     </>
